@@ -12,13 +12,13 @@ class DashboardService
   private
 
     def group_by_category
-      categories = Categorie.includes(:movies, :series)
+      categories = Category.includes(:movies, :series)
       Api::V1::CategorySerializer.new(categories)
     end
 
-    def group_by_watching
+    def group_by_keep_watching
       players = Player.includes(:movie).where(end_date: nil, user: @user)
-      Api::V1::MovieSerielizer.new(player.map(&:movie))
+      Api::V1::MovieSerializer.new(players.map(&:movie))
     end
 
     def group_by_highlight

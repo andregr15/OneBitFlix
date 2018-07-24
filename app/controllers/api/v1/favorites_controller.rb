@@ -1,6 +1,6 @@
 class Api::V1::FavoritesController < ApplicationController
   before_action :set_favorite, only: :destroy
-  # skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
   
   def index
     @favorites = current_user.favorites.all
@@ -8,7 +8,7 @@ class Api::V1::FavoritesController < ApplicationController
   end
 
   def create
-    @favorite = Faborite.new(favorite_params)
+    @favorite = Favorite.new(favorite_params)
     if @favorite.save
       head :ok
     else
@@ -33,4 +33,5 @@ class Api::V1::FavoritesController < ApplicationController
 
     def favorite_params
       params.require(:favorite).permit(:favoritable_type, :favoritable_id).merge(user: current_user)
+    end
 end

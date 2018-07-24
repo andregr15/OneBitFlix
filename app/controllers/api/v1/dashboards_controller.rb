@@ -1,7 +1,7 @@
 class Api::V1::DashboardsController < ApplicationController
   def index
     type_params && (return if performed?)
-    result = DashboardsService.new(params[:type], current_user).performed?
+    result = DashboardService.new(params[:type], current_user).perform
     render json: result
   end
 
@@ -14,7 +14,7 @@ class Api::V1::DashboardsController < ApplicationController
 
     def type_whitelist
       unless ['category', 'keep_watching', 'highlight'].include?(params[:type])
-        render json: { errors: 'Unpermitted type parameter' }, status :forbidden
+        render json: { errors: 'Unpermitted type parameter' }, status: :forbidden
       end
     end
 end

@@ -1,5 +1,5 @@
 class Api::V1::ExecutionsController < ApplicationController
-  before_action :set_execution, only: update
+  before_action :set_execution, only: :update
   # skip_before_action :verify_authenticity_token
   
   def show

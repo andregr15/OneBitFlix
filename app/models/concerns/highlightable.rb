@@ -20,4 +20,5 @@ module Highlightable
       end
       records.any?
     end
+  end
 end
