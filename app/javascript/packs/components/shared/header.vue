@@ -2,7 +2,9 @@
   <v-toolbar color="black" dark>
     <v-layout row wrap>
       <v-flex xs10 sm4>
-        <img :src="logo" class="logo" alt="logo" />
+        <router-link to="/">
+          <img :src="logo" class="logo" alt="logo" />
+        </router-link>
       </v-flex>
     </v-layout>
 
