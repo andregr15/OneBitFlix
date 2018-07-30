@@ -1,14 +1,37 @@
 <template>
-  <div id="app">
-    <p>{{ message }}</p>
-  </div>
+  <v-container grid-list-md text-xs-center>
+    <v-layout row wrap>
+    <v-flex xs6 offset-xs3>
+      <v-tabs icons-and-text centered dark color="cyan">
+      <v-tabs-slider color="yellow"></v-tabs-slider>
+      <v-tab href="#tab-1">
+        Recents
+        <v-icon>phone</v-icon>
+      </v-tab>
+      <v-tab href="#tab-2">
+        Favorites
+        <v-icon>favorite</v-icon>
+      </v-tab>
+      <v-tab href="#tab-3">
+        Nearby
+        <v-icon>account_box</v-icon>
+      </v-tab>
+      <v-tab-item v-for="i in 3" :key="i" :id="'tab-' + i" >
+        <v-card flat>
+          <v-card-text>{{ text }}</v-card-text>
+        </v-card>
+        </v-tab-item>
+      </v-tabs>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
 export default {
-  data: function () {
+  data () {
     return {
-      message: "Hello Vue!"
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscingelit, sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcolaboris nisi ut aliquip ex ea commodo consequat.'
     }
   }
 }
