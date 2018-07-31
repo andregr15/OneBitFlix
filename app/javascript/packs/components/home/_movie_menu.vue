@@ -11,41 +11,42 @@
         </v-btn>
       </v-flex>
 
-      <!-- <Details v-if="contentActive == 'details'"/>
-      <Episodes v-if="contentActive == 'episodes'"/>
-      <Reviews v-if="contentActive == 'reviews'"/> -->
+      <Details v-if="contentActive == 'details'" :watchable="watchable"/>
+      <!-- <Episodes v-if="contentActive == 'episodes'"/> -->
+      <!-- <Reviews v-if="contentActive == 'reviews'"/>  -->
+    </v-layout>
+    <v-layout row wrap class="navigation">
+      <v-flex md6>
+        <v-tabs fixed-tabs color="black" dark>
+          <v-tabs-slider color="red"></v-tabs-slider>
+          <v-tab color="white" href="#details" @click="changeContent('details')">
+            <p color="white">Details</p>
+          </v-tab>
 
-      <v-layout row wrap class="navigation">
-        <v-flex md6>
-          <v-tabs fixed-tabs color="black" dark>
-            <v-tabs-slider color="red"></v-tabs-slider>
-            <v-tab color="white" href="#details" @click="changeContent('details')">
-              <p color="white">Details</p>
-            </v-tab>
+          <v-tab color="white" href="#episodes" @click="changeContent('episodes')" v-if="watchable.type == 'serie'">
+            <p color="white">Episodes</p>
+          </v-tab>
 
-            <v-tab color="white" href="#episodes" @click="changeContent('episodes')" v-if="watchable.type == 'serie'">
-              <p color="white">Episodes</p>
-            </v-tab>
-
-            <v-tab color="white" href="#reviews" @click="changeContent('reviews')">
-              <p color="white">Reviews</p>
-            </v-tab>
-          </v-tabs>
-        </v-flex>
-      </v-layout>
+          <v-tab color="white" href="#reviews" @click="changeContent('reviews')">
+            <p color="white">Reviews</p>
+          </v-tab>
+        </v-tabs>
+      </v-flex>
     </v-layout>
   </div>
 </template>
 
 <script>
+import Details from './_details.vue';
+
 const watchable = {
   id: 1,
   type: 'serie',
   attributes: {
     title: 'Ruby on Rails Api Completa',
-    reviews_coutn: 5,
-    descripton: 'Saber como criar e consumir API\'s é fundamental para qualquer programador,' +
-                'então nessa pequena série nós vamos ver o que é essencial para criar uma usando RoR.',
+    reviews_count: 5,
+    description: 'Saber como criar e consumir API\'s é fundamental para qualquer programador,' +
+                 'então nessa pequena série nós vamos ver o que é essencial para criar uma usando RoR.',
     category: 'Ruby On Rails',
     thumbnail_cover_url: 'https://onebitcode.com/wp-content/uploads/2018/05/rails-admin-serie-cover.png'
   }
@@ -81,7 +82,7 @@ export default {
     }
   },
   components: { 
-
+    Details
   }
 };
 </script>
