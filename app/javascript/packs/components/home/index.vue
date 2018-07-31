@@ -2,12 +2,17 @@
   <v-layout row wrap justify-center>
     <v-flex xs12>
       <Featured :movie="featuredMovie"/>
+      <MovieList v-for="(category, index) in categories"
+                 :key="index"
+                 :name="category.name"
+                 :movies="category.movies"/>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
 import Featured from './_featured.vue';
+import MovieList from './_movie_list.vue';
 
 // ----------------------- Dados fake para teste ----------------------- //
 const featuredMovie = {
@@ -18,14 +23,85 @@ const featuredMovie = {
   featured_thumbnail_url: 'https://onebitcode.com/wp-content/uploads/2018/05/bg-example.png'
 }
 
+const categoriesMock = [
+  {
+    name: "Ruby On Rails" , movies: [
+      { 
+        id: '1', thumb_url:'https://onebitcode.com/wp-content/uploads/2018/05/capa-v-rails-admin-1.png'
+      },
+      {
+        id: '2', thumb_url:'https://onebitcode.com/wp-content/uploads/2018/05/capa-v-rails-admin-1.png'
+      },
+      {
+        id: '3', thumb_url:'https://onebitcode.com/wp-content/uploads/2018/05/capa-v-rails-admin-1.png' 
+      },
+      {
+        id: '4', thumb_url:'https://onebitcode.com/wp-content/uploads/2018/05/capa-v-rails-admin-1.png'
+      },
+      {
+        id: '5', thumb_url:'https://onebitcode.com/wp-content/uploads/2018/05/capa-v-rails-admin-1.png'
+      },
+      {
+        id: '6' , thumb_url:'https://onebitcode.com/wp-content/uploads/2018/05/capa-v-rails-admin-1.png'
+      }
+    ]
+  },
+  {
+    name: "VueJS", movies: [
+      {
+        id: '1' , thumb_url:'https://onebitcode.com/wp-content/uploads/2018/05/capa-v-rails-admin-1.png' 
+      },
+      {
+        id: '2', thumb_url:'https://onebitcode.com/wp-content/uploads/2018/05/capa-v-rails-admin-1.png'
+      },
+      {
+        id: '3', thumb_url:'https://onebitcode.com/wp-content/uploads/2018/05/capa-v-rails-admin-1.png'
+      },
+      {
+        id: '4', thumb_url:'https://onebitcode.com/wp-content/uploads/2018/05/capa-v-rails-admin-1.png' 
+      },
+      {
+        id: '5', thumb_url:'https://onebitcode.com/wp-content/uploads/2018/05/capa-v-rails-admin-1.png'
+      },
+      {
+        id: '6', thumb_url:'https://onebitcode.com/wp-content/uploads/2018/05/capa-v-rails-admin-1.png'
+      }
+    ]
+  },
+  {
+    name: "Chatbots" , movies: [
+      {
+        id: '1', thumb_url:'https://onebitcode.com/wp-content/uploads/2018/05/capa-v-rails-admin-1.png' 
+      },
+      {
+        id: '2', thumb_url:'https://onebitcode.com/wp-content/uploads/2018/05/capa-v-rails-admin-1.png' 
+      },
+      {
+        id: '3', thumb_url:'https://onebitcode.com/wp-content/uploads/2018/05/capa-v-rails-admin-1.png'
+      },
+      {
+        id: '4', thumb_url:'https://onebitcode.com/wp-content/uploads/2018/05/capa-v-rails-admin-1.png'
+      },
+      {
+        id: '5', thumb_url:'https://onebitcode.com/wp-content/uploads/2018/05/capa-v-rails-admin-1.png'
+      },
+      {
+        id: '6', thumb_url:'https://onebitcode.com/wp-content/uploads/2018/05/capa-v-rails-admin-1.png'
+      }
+    ]
+  }
+];
+
 export default {
   data() {
     return { 
-      featuredMovie: featuredMovie
+      featuredMovie: featuredMovie,
+      categories: categoriesMock
     }
   },
   components: {
-    Featured
+    Featured,
+    MovieList
   }
 };
 </script>

@@ -2,8 +2,10 @@ import Vue from 'vue';
 
 import Vuetify from 'vuetify';
 import App from './app.vue';
-import 'vuetify/dist/vuetify.min.css';
 import router from './routes.js';
+
+import 'slick-carousel/slick/slick.css';
+import 'vuetify/dist/vuetify.min.css';
 
 Vue.use(Vuetify);
 
