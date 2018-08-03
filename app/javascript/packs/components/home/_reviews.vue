@@ -30,27 +30,28 @@
 			</v-layout>
 		</v-flex>
 
-		<v-flex md4 xs10 mb-3 mt-2 offset-xs1>
+		<v-flex md4 xs10 mb-1 mt-2 offset-xs1>
 			<v-card color="grey darken-3">
 				<v-card-text>
 					<h2 class="title">Deixe a sua opinião</h2>
 
 					<v-container fluid>
 						<v-layout row wrap>
-								<heart-rating rating-selected="rating = $event" :rating="rating"
-															:item-size="20" :show-rating="false" active-color="#f44336"
-															inactive-color="#fff" border-color="#424242">
-								</heart-rating>
+							<heart-rating rating-selected="rating = $event" :rating="rating"
+														:item-size="20" :show-rating="false" active-color="#f44336"
+														inactive-color="#fff" border-color="#424242">
+							</heart-rating>
 
-							<v-flex md12>
+							<v-flex md12 mt-3>
 								<v-text-field name="input-1" label="Descreva o que achou pelo menos 180 caracteres..." textarea dark color="red" rows="2">
 
 								</v-text-field>
 							</v-flex>
 
-							<v-flex xs8 md3 right>
+							<v-flex xs8 md3>
 								<v-btn dark large>
-									<v-icon center>send</v-icon>
+									<v-icon left>send</v-icon>
+									Enviar
 								</v-btn>
 							</v-flex>
 						</v-layout>
@@ -116,7 +117,7 @@ export default {
 	font-size: 26px !important;
 	font-family: 'Source Sans Pro';
 	color: white;
-	margin-left: 12px;
+	margin-left: 20px;
 }
 
 .review-box {
